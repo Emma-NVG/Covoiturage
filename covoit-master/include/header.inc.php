@@ -25,10 +25,10 @@
 			<div class="colonne">
 				Covoiturage de l'IUT,<br />Partagez plus que votre véhicule !!!
 			</div>
-			</div>
-			<div id="connect">
-				<a href="index.php?page=11">Connexion</a>
-			</div>
+        </div>
+        <div id="connect">
+            <a href="index.php?page=11">Connexion</a>
+        </div>
 	</div>
 	
 
