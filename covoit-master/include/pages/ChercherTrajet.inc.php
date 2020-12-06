@@ -77,8 +77,6 @@
             <p>Désolé pas de trajet disponible ! </p>
         <?php }
     }
-} else { //la personne n'est pas connecté ?>
-    <p>Vous n'avez pas accès à cette page veuillez vous connecter</p>
-<?php } ?>
+} else { header('Location: index.php?page=0', true, 303); } ?>
 
 

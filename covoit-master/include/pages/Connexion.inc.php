@@ -20,7 +20,7 @@ if (isset($_POST['login']) && isset($_POST['pwd']) && isset($_POST['captcha'])) 
     $pwdCrypt = sha1(sha1($_POST['pwd']) . $salt);
     if ($personneManager->loginAndPasswordValide($_POST['login'], $pwdCrypt) && $_POST['captcha'] == $_POST['captcha_result']) {
         $_SESSION['login'] = $_POST['login'];
-        $_SESSION['pwd'] = $_POST['pwd']; //TODO stocké en sha1 ou non
+        $_SESSION['pwd'] = $pwdCrypt;
         header('location: index.php?page=0'); //redirection
     } else {
         echo 'Membre non reconnu...';

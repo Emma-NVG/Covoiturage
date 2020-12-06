@@ -49,6 +49,6 @@
         $retour = $proposeManager->add($propose);
         header('Location: index.php?page=9', true, 303);
     }
-} else { ?>
-    <p>Vous n'avez pas accès à cette page veuillez vous connecter</p>
-<?php } ?>
+} else {
+    header('Location: index.php?page=0', true, 303);
+ } ?>
