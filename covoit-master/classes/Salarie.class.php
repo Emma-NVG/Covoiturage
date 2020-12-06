@@ -1,5 +1,53 @@
 <?php
-class Salarie{
-	//A COMPLETER
-	
+
+class Salarie {
+    private $per_num;
+    private $sal_telprof;
+    private $fon_num;
+
+    public function __construct($valeurs = array()) {
+        if (!empty($valeurs)) $this->affecte($valeurs);
+    }
+
+    public function affecte($donnees) {
+        foreach ($donnees as $attribut => $valeur) {
+            switch ($attribut) {
+                case 'per_num':
+                    $this->setPerNum($valeur);
+                    break;
+                case 'sal_telprof':
+                    $this->setSalTelprof($valeur);
+                    break;
+                case 'fon_num':
+                    $this->setFonNum($valeur);
+                    break;
+            }
+        }
+    }
+
+    public function getPerNum() {
+        return $this->per_num;
+    }
+
+    public function setPerNum($per_num): void {
+        $this->per_num = $per_num;
+    }
+
+    public function getSalTelprof() {
+        return $this->sal_telprof;
+    }
+
+    public function setSalTelprof($sal_telprof): void {
+        $this->sal_telprof = $sal_telprof;
+    }
+
+    public function getFonNum() {
+        return $this->fon_num;
+    }
+
+    public function setFonNum($fon_num): void {
+        $this->fon_num = $fon_num;
+    }
+
+
 }

@@ -1,4 +1,89 @@
 <?php
-class Propose{
-	//A COMPLETER
+
+class Propose {
+    private $par_num;
+    private $per_num;
+    private $pro_date;
+    private $pro_time;
+    private $pro_place;
+    private $pro_sens;
+
+    public function __construct($valeurs = array()) {
+        if (!empty($valeurs)) $this->affecte($valeurs);
+    }
+
+    public function affecte($donnees) {
+        foreach ($donnees as $attribut => $valeur) {
+            switch ($attribut) {
+                case 'par_num':
+                    $this->setParNum($valeur);
+                    break;
+                case 'per_num':
+                    $this->setPerNum($valeur);
+                    break;
+                case 'pro_date':
+                    $this->setProDate($valeur);
+                    break;
+                case 'pro_time':
+                    $this->setProTime($valeur);
+                    break;
+                case 'pro_place':
+                    $this->setProPlace($valeur);
+                    break;
+                case 'pro_sens':
+                    $this->setProSens($valeur);
+                    break;
+            }
+        }
+    }
+
+    public function getParNum() {
+        return $this->par_num;
+    }
+
+    public function setParNum($par_num): void {
+        $this->par_num = $par_num;
+    }
+
+    public function getPerNum() {
+        return $this->per_num;
+    }
+
+    public function setPerNum($per_num): void {
+        $this->per_num = $per_num;
+    }
+
+    public function getProDate() {
+        return $this->pro_date;
+    }
+
+    public function setProDate($pro_date): void {
+        $this->pro_date = $pro_date;
+    }
+
+    public function getProTime() {
+        return $this->pro_time;
+    }
+
+    public function setProTime($pro_time): void {
+        $this->pro_time = $pro_time;
+    }
+
+    public function getProPlace() {
+        return $this->pro_place;
+    }
+
+    public function setProPlace($pro_place): void {
+        $this->pro_place = $pro_place;
+    }
+
+    public function getProSens() {
+        return $this->pro_sens;
+    }
+
+    public function setProSens($pro_sens): void {
+        $this->pro_sens = $pro_sens;
+    }
+
+
 }

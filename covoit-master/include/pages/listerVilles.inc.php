@@ -1,20 +1,26 @@
 <?php
-    $pdo = new Mypdo();
-    $villeManager = new VilleManager($pdo);
-    $villes=$villeManager->getAllVilles();
-    $number_Villes=$villeManager->numberVilles()
+$pdo = new Mypdo();
+$villeManager = new VilleManager($pdo);
+$villes = $villeManager->getAllVilles();
+$number_Villes = $villeManager->numberVilles();
 ?>
 
-<h1>Lister des villes</h1>
+<h1>Liste des villes</h1>
 
 <p>Actuellement <?php echo $number_Villes ?> villes sont enregistrées</p>
 <table>
-    <tr><th>Numéro</th><th>Nom</th></tr>
+    <tr>
+        <th>Numéro</th>
+        <th>Nom</th>
+    </tr>
     <?php
-    foreach ($villes as $ville){ ?>
-        <tr><td><?php echo $ville->getVilNum();?>
-        </td><td><?php echo $ville->getVilNom();?>
-        </td></tr>
+    foreach ($villes as $ville) { ?>
+        <tr>
+            <td><?php echo $ville->getVilNum(); ?>
+            </td>
+            <td><?php echo $ville->getVilNom(); ?>
+            </td>
+        </tr>
     <?php } ?>
 </table>
-<br />
+<br/>
