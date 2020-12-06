@@ -19,7 +19,7 @@ class PersonneManager {
         return $retour;
     }
 
-    public function modify($personne,$pernum) {
+    public function modify($personne, $pernum) {
         $requete = $this->db->prepare('UPDATE personne SET per_nom=:per_nom, per_prenom=:per_prenom,per_tel=:per_tel,per_mail=:per_mail,per_login=:per_login,per_pwd=:per_pwd WHERE per_num=:per_num');
         $requete->bindValue(':per_num', $pernum);
         $requete->bindValue(':per_nom', $personne->getPerNom());
@@ -105,7 +105,7 @@ class PersonneManager {
         $requete->execute();
 
         $pwd = $requete->fetch();
-        if($pwd!=null){
+        if ($pwd != null) {
             if ($password == $pwd['per_pwd']) {
                 return true;
             } else {

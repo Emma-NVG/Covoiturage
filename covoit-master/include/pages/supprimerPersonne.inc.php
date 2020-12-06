@@ -19,7 +19,8 @@ if (isset($_POST['supprimer']) && empty($_POST['conf'])) { ?>
     <form action="#" method="POST">
         <?php $per_a_suppr = $personneManager->getPersonneFromPerNum($_POST['per_suppr']) ?>
         <fieldset>
-            <label>Êtes-vous sûr de vouloir supprimer <?php echo $per_a_suppr->getPerNom() . " " . $per_a_suppr->getPerPrenom() ?> ? </label>
+            <label>Êtes-vous sûr de vouloir
+                supprimer <?php echo $per_a_suppr->getPerNom() . " " . $per_a_suppr->getPerPrenom() ?> ? </label>
             <input type="hidden" name="per_num" value="<?php echo $_POST['per_suppr']; ?>">
             <input type="radio" id="oui" name="conf" value="Oui"><label for="oui">Oui</label>
             <input type="radio" id="non" name="conf" value="Non" checked><label for="non">Non</label>

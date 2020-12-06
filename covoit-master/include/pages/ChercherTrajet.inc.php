@@ -77,6 +77,8 @@
             <p>Désolé pas de trajet disponible ! </p>
         <?php }
     }
-} else { header('Location: index.php?page=0', true, 303); } ?>
+} else {
+    header('Location: index.php?page=0', true, 303);
+} ?>
 
 
