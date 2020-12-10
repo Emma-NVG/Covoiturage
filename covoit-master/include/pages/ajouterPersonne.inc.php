@@ -23,10 +23,10 @@ if (empty($_POST['categorie'])) {
         <label>Mail :</label><input type="email" name="per_mail" required><br>
         <label>Login :</label><input type="text" name="per_login" autocomplete="off" required><br>
         <label>Mot de Passe :</label><input type="password" name="per_pwd" autocomplete="off" required><br>
-        <label>Catégorie :</label>
-        <input type="radio" name="categorie" value="etudiant" checked>Etudiant
-        <input type="radio" name="categorie" value="personnel">Personnel<br>
-        <input type="submit" name="valider" value="Valider">
+        <label>Catégorie :</label><br>
+        <input type="radio" name="categorie" id="etudiant" value="etudiant" checked><label for="etudiant" class="radiobtn">Etudiant</label>
+        <input type="radio" name="categorie" id="personnel" value="personnel"><label for="personnel" class="radiobtn">Personnel</label><br>
+        <input type="submit" class="btn" name="valider" value="Valider">
     </form>
     <?php
 } else {
@@ -43,6 +43,7 @@ if (empty($_POST['categorie'])) {
                     <option value="<?php echo $div->getDivNum(); ?>"><?php echo $div->getDivNom(); ?></option>
                 <?php } ?>
             </select>
+
             <label>Département :</label>
             <select name="dep_num" required>
                 <?php foreach ($departements as $dep) { ?>

@@ -69,14 +69,14 @@ if (isset($_POST['per_modif'])) {
                     } ?>> <?php echo $div->getDivNom(); ?></option>
                 <?php } ?>
             </select>
-            <label>Département :</label>
+            <label>Département :
             <select name="dep_num">
                 <?php foreach ($departements as $dep) { ?>
                     <option value="<?php echo $dep->getDepNum(); ?>" <?php if ($dep->getDepNum() == $etu->getDepNum()) {
                         echo "selected";
                     } ?>> <?php echo $dep->getDepNom(); ?></option>
                 <?php } ?>
-            </select>
+            </select></label>
         </div>
         <div class="personnel statut">
             <?php
