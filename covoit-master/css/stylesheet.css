@@ -18,23 +18,23 @@ body {
 
 #header {
     width: 100%;
-    height: 230px;
+    height: 180px;
     background-color: #222222;
     box-shadow: 0 0 20px #000000;
     border-bottom: solid #444444 8px;
 }
 
-.colonne {
-    display: table-cell;
+.logo {
     padding: 25px;
 }
-
-.colonne:first-child {
-
+.logo img{
+    width: 65%;
 }
 
-.colonne:nth-child(2) {
+.title {
+    margin: auto;
     vertical-align: middle;
+    text-align: center;
     color: #CCCCCC;
     font-size: 32px;
     font-weight: bold;
@@ -42,20 +42,19 @@ body {
 }
 
 #entete {
-    width: 1050px;
+    width: 100%;
     margin: auto;
-    display: table
+    display: inline-flex;
+    height: inherit;
 }
 
 #connect {
+    margin: auto;
     height: 30px;
-    width: 380px;
-    padding: 10px;
-    position: absolute;
-    right: 30px;
-    top: 25%;
+    width: auto;
+    padding: 0.5rem 1rem;
     background-color: #AAAAAA;
-    border-radius: 10px;
+    border-radius: 2rem;
     border: 4px solid #111111;
     box-shadow: 0 0 5px #000000 inset;
     color: #222222;
@@ -118,6 +117,7 @@ body {
     text-align: center;
     min-height: 380px;
     color: #222222;
+    padding-bottom: 2rem;
 }
 
 #spacer {
@@ -156,7 +156,6 @@ h1 {
     text-shadow: 1px 1px 2px #333333;
 }
 
-
 * a:hover {
 
     text-decoration: underline;
@@ -182,9 +181,58 @@ table {
 
 table td, table th {
     border: solid black 1px;
-
-}
+    width: 20%;
+ }
 
 .statut {
     display: none;
 }
+
+input{
+    margin-bottom: 0.5rem;
+}
+
+input[type=text],input[type=tel],input[type=email],input[type=password]{
+    background-color: white;
+    border: white;
+    border-radius: 2rem;
+    height: 1.5rem;
+}
+
+select,input[type=date],input[type=time] {
+    background-color: white;
+    border: white;
+    border-radius: 0.5rem;
+    height: 2rem;
+}
+
+input[type=submit]{
+    border-radius: 2rem;
+    padding: 0.5rem 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.form-grid {
+    display: table;
+    width: fit-content;
+    margin: auto;
+}
+
+.row{
+    display: table-row;
+    height: 2.5rem;
+}
+
+.form-grid input, .form-grid label {
+    display: table-cell;
+    text-align: left;
+}
+
+form{
+    margin: 3rem;
+}
+
+.inline{
+    display: inline-flex;
+}
+

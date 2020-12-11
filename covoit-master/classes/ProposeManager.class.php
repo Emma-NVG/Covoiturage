@@ -81,7 +81,7 @@ class ProposeManager {
     }
 
     public function deleteAvisFromPerNum($per_num): void {
-        $requete = $this->db->prepare('DELETE FROM propose WHERE per_num=(:per_num) OR per_per_num=(:per_num)');
+        $requete = $this->db->prepare('DELETE FROM avis WHERE per_num=(:per_num) OR per_per_num=(:per_num)');
         $requete->bindValue(':per_num', $per_num);
         $requete->execute();
         $requete->closeCursor();

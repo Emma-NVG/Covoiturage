@@ -13,22 +13,25 @@ session_start();
 <body>
 <div id="header">
     <div id="entete">
-        <div class="colonne">
+        <div class="logo">
             <a href="index.php?page=0">
                 <img src="image/logo.png" alt="Logo covoiturage IUT" title="Logo covoiturage IUT Limousin"/>
             </a>
         </div>
-        <div class="colonne">
+        <div class="title">
             Covoiturage de l'IUT,<br/>Partagez plus que votre véhicule !!!
         </div>
-    </div>
-    <div id="connect">
-        <?php if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { ?>
-            <a href="index.php?page=12">Utilisateur : <?php echo $_SESSION['login']; ?> Déconnexion</a>
-        <?php } else { ?>
-            <a href="index.php?page=11">Connexion</a>
-        <?php } ?>
+        <div id="connect">
+            <?php if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { ?>
+                <a href="index.php?page=12"><?php echo $_SESSION['login']; ?> <i>(déconnexion)</i></a>
+            <?php } else { ?>
+                <a href="index.php?page=11">Connexion</a>
+            <?php } ?>
+        </div>
     </div>
 </div>
+
+
+
 	
 

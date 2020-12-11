@@ -12,20 +12,22 @@ $departements = $departementManager->getAllDepartements();
 $fonctionManager = new FonctionManager($pdo);
 $fonctions = $fonctionManager->getAllFonctions();
 ?>
-    <h1>Ajouter une personne</h1>
 <?php
 if (empty($_POST['categorie'])) {
     ?>
+    <h1>Ajouter une personne</h1>
     <form action="#" method="POST">
-        <label>Nom :</label><input type="text" name="per_nom" required><br>
-        <label>Prénom :</label><input type="text" name="per_prenom" required><br>
-        <label>Téléphone :</label><input type="tel" name="per_tel" required><br>
-        <label>Mail :</label><input type="email" name="per_mail" required><br>
-        <label>Login :</label><input type="text" name="per_login" autocomplete="off" required><br>
-        <label>Mot de Passe :</label><input type="password" name="per_pwd" autocomplete="off" required><br>
-        <label>Catégorie :</label>
-        <input type="radio" name="categorie" value="etudiant" checked>Etudiant
-        <input type="radio" name="categorie" value="personnel">Personnel<br>
+        <div class="form-grid">
+            <div class="row"><label>Nom :</label><input type="text" name="per_nom" required><br></div>
+            <div class="row"><label>Prénom :</label><input type="text" name="per_prenom" required><br></div>
+            <div class="row"><label>Téléphone :</label><input type="tel" name="per_tel" required><br></div>
+            <div class="row"><label>Mail :</label><input type="email" name="per_mail" required><br></div>
+            <div class="row"><label>Login :</label><input type="text" name="per_login" autocomplete="off" required><br></div>
+            <div class="row"><label>Mot de Passe :</label><input type="password" name="per_pwd" autocomplete="off" required><br></div>
+            <label>Catégorie :</label>
+            <input type="radio" name="categorie" value="etudiant" checked>Etudiant
+            <input type="radio" name="categorie" value="personnel">Personnel<br>
+        </div>
         <input type="submit" name="valider" value="Valider">
     </form>
     <?php
