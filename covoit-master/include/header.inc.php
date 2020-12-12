@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_POST = array_map('htmlspecialchars', $_POST); //évite l'injection de html / javascript dans le code
 ?>
 <!doctype html>
 <html lang="fr">
