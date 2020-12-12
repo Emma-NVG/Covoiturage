@@ -7,7 +7,7 @@ $numberParcours = $parcoursManager->numberParcours();
 
 <h1>Liste des parcours</h1>
 
-<p>Actuellement <?php echo $numberParcours ?> parcours sont enregistrées</p>
+<p>Actuellement <?php echo $numberParcours ?> parcours sont enregistrés</p>
 <table>
     <tr>
         <th>Numéro</th>

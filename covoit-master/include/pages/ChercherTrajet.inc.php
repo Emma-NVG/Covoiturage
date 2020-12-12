@@ -67,7 +67,8 @@
                         <td><?php echo $item->getProPlace() ?></td>
                         <?php $avis = $proposeManager->recupererAvis($item->getPerNum()); ?>
                         <td><a href=""
-                               title="Moyenne des avis : <?php echo $avis['moy_avis'][0]; ?>  Dernier avis : <?php echo $avis['last_avis'][0]; ?> "><?php echo $personneManager->getPersonneFromPerNum($item->getPerNum())->getPerNom() ?></a>
+                               title="Moyenne des avis : <?php if(0==count($avis)) {echo $avis['moy_avis'][0];}else{ echo "-"; } ?>  Dernier avis : <?php if(0==count($avis)) {echo $avis['last_avis'][0];}else{ echo "-";} ?> ">
+                                <?php echo $personneManager->getPersonneFromPerNum($item->getPerNum())->getPerNom() ?></a>
                         </td>
                     </tr>
                 <?php } ?>
