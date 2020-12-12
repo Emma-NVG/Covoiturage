@@ -23,7 +23,7 @@ if (empty($_POST['vil_num1']) || empty($_POST['vil_num2'])) {
             <?php } ?>
         </select>
 
-        <label>Nombre de kilomètre(s) : </label><input type="text" name="par_km">
+        <label>Nombre de kilomètre(s) : </label><input type="number" name="par_km" min="1" max="9000">
         <input type="submit" name="valider" value="Valider">
     </form>
     <?php

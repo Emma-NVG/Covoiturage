@@ -30,11 +30,11 @@ if (isset($_POST['per_modif'])) {
     <form action="#" method="POST">
         <div class="form-grid">
             <input type="hidden" name="per_num" value="<?php echo $_POST['per_modif']; ?>">
-            <div class="row"><label>Nom :</label><input type="text" name="per_nom" value="<?php echo $per_a_modif->getPerNom(); ?>" required></div>
+            <div class="row"><label>Nom :</label><input type="text" name="per_nom" value="<?php echo $per_a_modif->getPerNom(); ?>" pattern="[A-Za-z]" required></div>
             <div class="row"><label>Prénom :</label><input type="text" name="per_prenom" value="<?php echo $per_a_modif->getPerPrenom(); ?>"
-                                                           required></div>
+                                                           pattern="[A-Za-z]" required></div>
             <div class="row"><label>Téléphone :</label><input type="tel" name="per_tel" value="<?php echo $per_a_modif->getPerTel(); ?>"
-                                                              required></div>
+                                                              pattern="[0-9]{10}" required></div>
             <div class="row"><label>Mail :</label><input type="email" name="per_mail" value="<?php echo $per_a_modif->getPerMail(); ?>"
                                                          required></div>
             <div class="row"><label>Login :</label><input type="text" name="per_login" autocomplete="off"
@@ -44,10 +44,10 @@ if (isset($_POST['per_modif'])) {
                 <label>Catégorie :</label>
                 <?php $statut = $personneManager->isEtudiant($per_a_modif->getPerNum()); ?>
                 <input type="hidden" name="old_categorie" value="<?php echo $statut; ?>">
-                <input type="radio" name="categorie" value="etudiant" <?php if ($statut == "etudiant") {
+                <input type="radio" name="categorie" value="etudiant" class="modifier" <?php if ($statut == "etudiant") {
                     echo "checked";
                 } ?>>Etudiant
-                <input type="radio" name="categorie" value="salarie" <?php if ($statut == "salarie") {
+                <input type="radio" name="categorie" value="salarie" class="modifier" <?php if ($statut == "salarie") {
                     echo "checked";
                 } ?>>Personnel<br>
 
@@ -81,7 +81,7 @@ if (isset($_POST['per_modif'])) {
                 $salarieManager = new SalarieManager($pdo);
                 $sal = $salarieManager->getSalarieFromPerNum($_POST['per_modif']);
                 ?>
-                <label>Téléphone professionnel :<input type="tel" name="sal_telprof" value="<?php echo $sal->getSalTelprof(); ?>"></label><br>
+                <label>Téléphone professionnel :<input type="tel" name="sal_telprof" value="<?php echo $sal->getSalTelprof(); ?>" pattern="[0-9]{10}" ></label><br>
                 <label>Fonction :
                 <select name="fon_num">
                     <?php foreach ($fonctions as $fon) { ?>
@@ -140,23 +140,3 @@ if (isset($_POST['categorie']) && isset($_POST['old_categorie']) && ($_POST['cat
     }
 }
 ?>
-
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript">
-
-    $(document).ready(function () {
-        $('input[type="radio"]').click(function () {
-            var val = $(this).attr("value");
-            var target = $("." + val);
-            $(".statut").not(target).hide();
-            $(target).show();
-        });
-    });
-    $(document).ready(function () {
-        var val = $('input[type="radio"]:checked').attr("value");
-        var target = $("." + val);
-        $(".statut").not(target).hide();
-        $(target).show();
-    });
-</script>
-

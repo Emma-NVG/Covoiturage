@@ -10,6 +10,8 @@ $_POST = array_map('htmlspecialchars', $_POST); //évite l'injection de html / j
     <?php $title = "Bienvenue sur le site de covoiturage de l'IUT."; ?>
     <title><?php echo $title ?></title>
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <body>
 <div id="header">

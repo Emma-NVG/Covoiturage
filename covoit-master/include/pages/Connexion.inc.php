@@ -12,7 +12,7 @@
         <h1>+</h1><img src="image/nb/<?php echo $rand2; ?>.jpg">
         <h1>=</h1><br>
     </div>
-    <input type="text" name="captcha"><br>
+    <input type="number" name="captcha"><br>
     <input type="submit" name="btn-submit" value="Valider">
 </form>
 <?php
