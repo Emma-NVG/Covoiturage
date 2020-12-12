@@ -33,7 +33,7 @@
                 <?php } ?>
             </select><br>
             <label>Date de départ : </label><input type="date" name="date" value="<?php echo date("yy-m-d"); ?>"
-                                                   required>
+                    required>
             <label>Précision : </label>
             <select name="precision" required>
                 <option value="0">Ce jour</option>
@@ -42,7 +42,7 @@
                 <option value="3">+/-3 jour</option>
             </select>
             <label>A partir de : </label><input type="time" name="time" value="<?php echo date("H:i:s"); ?>"
-                                                required><br>
+                    required><br>
             <input type="submit" value="Valider">
         </form>
     <?php }
@@ -67,7 +67,15 @@
                         <td><?php echo $item->getProPlace() ?></td>
                         <?php $avis = $proposeManager->recupererAvis($item->getPerNum()); ?>
                         <td><a href=""
-                               title="Moyenne des avis : <?php if(0==count($avis)) {echo $avis['moy_avis'][0];}else{ echo "-"; } ?>  Dernier avis : <?php if(0==count($avis)) {echo $avis['last_avis'][0];}else{ echo "-";} ?> ">
+                                    title="Moyenne des avis : <?php if (0 == count($avis)) {
+                                        echo $avis['moy_avis'][0];
+                                    } else {
+                                        echo "-";
+                                    } ?>  Dernier avis : <?php if (0 == count($avis)) {
+                                        echo $avis['last_avis'][0];
+                                    } else {
+                                        echo "-";
+                                    } ?> ">
                                 <?php echo $personneManager->getPersonneFromPerNum($item->getPerNum())->getPerNom() ?></a>
                         </td>
                     </tr>

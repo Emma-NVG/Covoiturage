@@ -18,12 +18,17 @@ if (empty($_POST['categorie'])) {
     <h1>Ajouter une personne</h1>
     <form class="form" action="#" method="POST">
         <div class="form-grid">
-            <div class="row"><label>Nom :</label><input type="text" name="per_nom" pattern="[A-Za-z]" required><br></div>
-            <div class="row"><label>Prénom :</label><input type="text" name="per_prenom" pattern="[A-Za-z]" required><br></div>
-            <div class="row"><label>Téléphone :</label><input type="tel" name="per_tel" pattern="[0-9]{10}" required><br></div>
+            <div class="row"><label>Nom :</label><input type="text" name="per_nom" pattern="[A-Za-z]" required><br>
+            </div>
+            <div class="row"><label>Prénom :</label><input type="text" name="per_prenom" pattern="[A-Za-z]"
+                        required><br></div>
+            <div class="row"><label>Téléphone :</label><input type="tel" name="per_tel" pattern="[0-9]{10}"
+                        required><br></div>
             <div class="row"><label>Mail :</label><input type="email" name="per_mail" required><br></div>
-            <div class="row"><label>Login :</label><input type="text" name="per_login" autocomplete="off" required><br></div>
-            <div class="row"><label>Mot de Passe :</label><input type="password" name="per_pwd" autocomplete="off" required><br></div>
+            <div class="row"><label>Login :</label><input type="text" name="per_login" autocomplete="off" required><br>
+            </div>
+            <div class="row"><label>Mot de Passe :</label><input type="password" name="per_pwd" autocomplete="off"
+                        required><br></div>
             <label>Catégorie :</label>
             <input type="radio" name="categorie" value="etudiant" checked>Etudiant
             <input type="radio" name="categorie" value="personnel">Personnel<br>
