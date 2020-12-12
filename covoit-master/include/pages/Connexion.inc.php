@@ -7,9 +7,11 @@
     $captcha = $rand1 + $rand2;
     ?>
     <input type="hidden" name="captcha_result" value="<?php echo $captcha ?>">
-    <img src="image/nb/<?php echo $rand1; ?>.jpg">
-    <p>+</p><img src="image/nb/<?php echo $rand2; ?>.jpg">
-    <p>=</p><br>
+    <div class="inline">
+        <img src="image/nb/<?php echo $rand1; ?>.jpg">
+        <h1>+</h1><img src="image/nb/<?php echo $rand2; ?>.jpg">
+        <h1>=</h1><br>
+    </div>
     <input type="text" name="captcha"><br>
     <input type="submit" name="btn-submit" value="Valider">
 </form>

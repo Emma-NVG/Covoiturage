@@ -55,16 +55,6 @@ class PersonneManager {
         return $numberPersonnes;
     }
 
-    public function lastPersonneAdd() {
-        $requete = $this->db->prepare('SELECT LAST_INSERT_ID() FROM personne ');
-        $requete->execute();
-
-        $id = $requete->fetch();
-        $lastPersonneId = $id[0];
-        $requete->closeCursor();
-        return $lastPersonneId;
-    }
-
     public function isEtudiant($numPers) {
         $requete = $this->db->prepare('SELECT COUNT(per_num) FROM etudiant WHERE per_num=(:per_num) ');
         $requete->bindValue(':per_num', $numPers);

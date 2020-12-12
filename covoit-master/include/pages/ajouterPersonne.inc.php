@@ -4,7 +4,7 @@ $etudiantManager = new EtudiantManager($pdo);
 $salarieManager = new SalarieManager($pdo);
 
 $personneManager = new PersonneManager($pdo);
-$lastPersonneId = $personneManager->lastPersonneAdd();
+$lastPersonneId = $pdo->lastInsertId();
 $divisionManager = new DivisionManager($pdo);
 $divisions = $divisionManager->getAllDivisions();
 $departementManager = new DepartementManager($pdo);
@@ -69,13 +69,13 @@ if (empty($_POST['categorie'])) {
         </form>
     <?php }
 }
-if ((!empty($_POST['dep_num'])) && (!empty($_POST['div_num']))) {
+if (isset($_POST['dep_num']) && isset($_POST['div_num'])) {
     $arrayPost = array('per_num' => $lastPersonneId, 'dep_num' => $_POST['dep_num'], 'div_num' => $_POST['div_num']);
     $etudiant = new Etudiant($arrayPost);
     $retour = $etudiantManager->add($etudiant);
     header('Location: index.php?page=1', true, 303);
 }
-if ((!empty($_POST['fon_num'])) && (!empty($_POST['sal_telprof']))) {
+if (isset($_POST['fon_num']) && isset($_POST['sal_telprof'])) {
     $arrayPost = array('per_num' => $lastPersonneId, 'sal_telprof' => $_POST['sal_telprof'], 'fon_num' => $_POST['fon_num']);
     $salarie = new Salarie($arrayPost);
     $retour = $salarieManager->add($salarie);
