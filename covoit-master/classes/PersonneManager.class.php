@@ -3,10 +3,19 @@
 class PersonneManager {
     private $db;
 
+    /**
+     * PersonneManager constructor.
+     * @param $db
+     */
     public function __construct($db) {
         $this->db = $db;
     }
 
+    /**
+     * Fonction qui ajoute une personne dans la table personne de la base de donnée
+     * @param $personne
+     * @return bool
+     */
     public function add($personne) {
         $requete = $this->db->prepare('INSERT INTO personne (per_nom, per_prenom,per_tel,per_mail,per_login,per_pwd) VALUES (:per_nom, :per_prenom,:per_tel,:per_mail,:per_login,:per_pwd)');
         $requete->bindValue(':per_nom', $personne->getPerNom());
@@ -19,6 +28,12 @@ class PersonneManager {
         return $retour;
     }
 
+    /**
+     * Fonction qui change les valeurs d'une personne de la table personne par celles passées en paramètre
+     * @param $personne
+     * @param $pernum
+     * @return bool
+     */
     public function modify($personne, $pernum) {
         $requete = $this->db->prepare('UPDATE personne SET per_nom=:per_nom, per_prenom=:per_prenom,per_tel=:per_tel,per_mail=:per_mail,per_login=:per_login,per_pwd=:per_pwd WHERE per_num=:per_num');
         $requete->bindValue(':per_num', $pernum);
@@ -32,6 +47,10 @@ class PersonneManager {
         return $retour;
     }
 
+    /**
+     * Fonction qui retourne un arrau contenant les personnes de la table personne
+     * @return array
+     */
     public function getAllPersonnes() {
         $listePersonnes = array();
 
@@ -45,6 +64,10 @@ class PersonneManager {
         return $listePersonnes;
     }
 
+    /**
+     * Fonction qui retourne le nombre de personnes dans la table personne
+     * @return int
+     */
     public function numberPersonne() {
         $requete = $this->db->prepare('SELECT COUNT(per_num) FROM personne');
         $requete->execute();
@@ -55,6 +78,11 @@ class PersonneManager {
         return $numberPersonnes;
     }
 
+    /**
+     * Fonction qui renvoie la catégorie de la personne correspondante au numéro passé en paramètre
+     * @param $numPers
+     * @return string
+     */
     public function isEtudiant($numPers) {
         $requete = $this->db->prepare('SELECT COUNT(per_num) FROM etudiant WHERE per_num=(:per_num) ');
         $requete->bindValue(':per_num', $numPers);
@@ -71,6 +99,11 @@ class PersonneManager {
         return $categorie;
     }
 
+    /**
+     * Fonction qui renvoie un objet personne ayant pour attribut ceux de la personne correspondant au numéro passé en paramètre
+     * @param $per_num
+     * @return Personne
+     */
     public function getPersonneFromPerNum($per_num) {
         $requete = $this->db->prepare('SELECT per_num, per_nom, per_prenom, per_tel, per_mail, per_login, per_pwd  FROM personne WHERE per_num=(:per_num) ORDER BY 1');
         $requete->bindValue(':per_num', $per_num);
@@ -80,6 +113,11 @@ class PersonneManager {
         return new Personne($pers);
     }
 
+    /**
+     * Fonction qui renvoie le numéro de la personne correspondante au login passé en paramètre
+     * @param $login
+     * @return mixed
+     */
     public function getNumFromLogin($login) {
         $requete = $this->db->prepare('SELECT per_num FROM personne WHERE per_login=(:login) ORDER BY 1');
         $requete->bindValue(':login', $login);
@@ -89,6 +127,12 @@ class PersonneManager {
         return $per_num[0];
     }
 
+    /**
+     * Fonction qui vérifie si les valeurs en paramètres correspondent aux login et password d'une personne de la table personne
+     * @param $login
+     * @param $password
+     * @return bool
+     */
     public function loginAndPasswordValide($login, $password) {
         $requete = $this->db->prepare('SELECT per_pwd  FROM personne WHERE per_login=(:per_login)');
         $requete->bindValue(':per_login', $login);
@@ -105,6 +149,10 @@ class PersonneManager {
         }
     }
 
+    /**
+     * Fonction qui delete la personne en base correspondant au numéro passé en paramètre
+     * @param $per_num
+     */
     public function deletePersonneFromNum($per_num): void {
         $requete = $this->db->prepare('DELETE FROM personne WHERE per_num=(:per_num)');
         $requete->bindValue(':per_num', $per_num);

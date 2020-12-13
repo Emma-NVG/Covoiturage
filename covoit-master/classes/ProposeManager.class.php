@@ -3,10 +3,19 @@
 class ProposeManager {
     private $db;
 
+    /**
+     * ProposeManager constructor.
+     * @param $db
+     */
     public function __construct($db) {
         $this->db = $db;
     }
 
+    /**
+     * Fonction qui ajoute un trajet dans la table propose de la base de donnée
+     * @param $propose
+     * @return mixed
+     */
     public function add($propose) {
         $requete = $this->db->prepare('INSERT INTO propose (par_num, per_num, pro_date, pro_time, pro_place, pro_sens) VALUES (:par_num, :per_num, :pro_date, :pro_time, :pro_place, :pro_sens)');
         $requete->bindValue(':par_num', $propose->getParNum());
@@ -19,6 +28,10 @@ class ProposeManager {
         return $retour;
     }
 
+    /**
+     * Fonction qui renvoie tous les trajets de la table propose
+     * @return array
+     */
     public function getAllTrajetPropose() {
         $listePropose = array();
 
@@ -32,6 +45,15 @@ class ProposeManager {
         return $listePropose;
     }
 
+    /**
+     * Fonction qui retourne les trajets correspondant aux critères passés en paramètres
+     * @param $villeDepart
+     * @param $villeArrivee
+     * @param $date_dep
+     * @param $heure_dep
+     * @param $precision
+     * @return array
+     */
     public function getTrajetProposeWithCriteria($villeDepart, $villeArrivee, $date_dep, $heure_dep, $precision) {
         $listeTrajet = array();
         $requete = $this->db->prepare(' SELECT pa.par_num, per_num, DATE_FORMAT(pro_date,"%d/%m/%Y") as pro_date, pro_time, pro_place, pro_sens FROM propose pr
@@ -55,6 +77,11 @@ class ProposeManager {
         return $listeTrajet;
     }
 
+    /**
+     * Fonction qui retourne la moyenne des notes et le dernier avis d'un conducteur (personne)
+     * @param $per_num
+     * @return array
+     */
     public function recupererAvis($per_num) {
 
         $requete = $this->db->prepare('SELECT ROUND(AVG(avi_note),1) as moyenne FROM avis WHERE per_num=(:per_num)');
@@ -73,6 +100,10 @@ class ProposeManager {
         return $tab;
     }
 
+    /**
+     * Procédure qui permet de delete les trajets correspondants à la personne ayant le numéro en paramètre de la base
+     * @param $per_num
+     */
     public function deleteProposeFromPerNum($per_num): void {
         $requete = $this->db->prepare('DELETE FROM propose WHERE per_num=(:per_num)');
         $requete->bindValue(':per_num', $per_num);
@@ -80,6 +111,10 @@ class ProposeManager {
         $requete->closeCursor();
     }
 
+    /**
+     * Procédure qui permet de delete les avis correspondants à la personne ayant le numéro en paramètre de la base
+     * @param $per_num
+     */
     public function deleteAvisFromPerNum($per_num): void {
         $requete = $this->db->prepare('DELETE FROM avis WHERE per_num=(:per_num) OR per_per_num=(:per_num)');
         $requete->bindValue(':per_num', $per_num);
