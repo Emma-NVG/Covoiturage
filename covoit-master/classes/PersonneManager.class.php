@@ -147,6 +147,7 @@ class PersonneManager {
                 return false;
             }
         }
+        return false;
     }
 
     /**
