@@ -41,7 +41,7 @@ class Propose {
         return $this->par_num;
     }
 
-    public function setParNum($par_num): void {
+    public function setParNum($par_num) {
         $this->par_num = $par_num;
     }
 
@@ -49,7 +49,7 @@ class Propose {
         return $this->per_num;
     }
 
-    public function setPerNum($per_num): void {
+    public function setPerNum($per_num) {
         $this->per_num = $per_num;
     }
 
@@ -57,7 +57,7 @@ class Propose {
         return $this->pro_date;
     }
 
-    public function setProDate($pro_date): void {
+    public function setProDate($pro_date) {
         $this->pro_date = $pro_date;
     }
 
@@ -65,7 +65,7 @@ class Propose {
         return $this->pro_time;
     }
 
-    public function setProTime($pro_time): void {
+    public function setProTime($pro_time) {
         $this->pro_time = $pro_time;
     }
 
@@ -73,7 +73,7 @@ class Propose {
         return $this->pro_place;
     }
 
-    public function setProPlace($pro_place): void {
+    public function setProPlace($pro_place) {
         $this->pro_place = $pro_place;
     }
 
@@ -81,7 +81,7 @@ class Propose {
         return $this->pro_sens;
     }
 
-    public function setProSens($pro_sens): void {
+    public function setProSens($pro_sens) {
         $this->pro_sens = $pro_sens;
     }
 

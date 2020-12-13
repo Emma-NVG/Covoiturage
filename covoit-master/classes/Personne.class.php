@@ -45,7 +45,7 @@ class Personne {
         return $this->per_num;
     }
 
-    public function setPerNum($per_num): void {
+    public function setPerNum($per_num){
         $this->per_num = $per_num;
     }
 
@@ -53,7 +53,7 @@ class Personne {
         return $this->per_nom;
     }
 
-    public function setPerNom($per_nom): void {
+    public function setPerNom($per_nom){
         $this->per_nom = $per_nom;
     }
 
@@ -61,7 +61,7 @@ class Personne {
         return $this->per_prenom;
     }
 
-    public function setPerPrenom($per_prenom): void {
+    public function setPerPrenom($per_prenom) {
         $this->per_prenom = $per_prenom;
     }
 
@@ -69,7 +69,7 @@ class Personne {
         return $this->per_tel;
     }
 
-    public function setPerTel($per_tel): void {
+    public function setPerTel($per_tel) {
         $this->per_tel = $per_tel;
     }
 
@@ -77,7 +77,7 @@ class Personne {
         return $this->per_mail;
     }
 
-    public function setPerMail($per_mail): void {
+    public function setPerMail($per_mail) {
         $this->per_mail = $per_mail;
     }
 
@@ -85,7 +85,7 @@ class Personne {
         return $this->per_login;
     }
 
-    public function setPerLogin($per_login): void {
+    public function setPerLogin($per_login){
         $this->per_login = $per_login;
     }
 
@@ -93,8 +93,7 @@ class Personne {
         return $this->per_pwd;
     }
 
-    public function setPerPwd($per_pwd): void {
-        $salt = "48@!alsd";
-        $this->per_pwd = sha1(sha1($per_pwd) . $salt);
+    public function setPerPwd($per_pwd) {
+        $this->per_pwd = sha1(sha1($per_pwd) . SALT);
     }
 }

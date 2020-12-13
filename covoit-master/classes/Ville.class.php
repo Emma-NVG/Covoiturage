@@ -25,7 +25,7 @@ class Ville {
         return $this->vil_num;
     }
 
-    public function setVilNum($vil_num): void {
+    public function setVilNum($vil_num){
         $this->vil_num = $vil_num;
     }
 
@@ -33,7 +33,7 @@ class Ville {
         return $this->vil_nom;
     }
 
-    public function setVilNom($vil_nom): void {
+    public function setVilNom($vil_nom) {
         $this->vil_nom = $vil_nom;
     }
 

@@ -32,11 +32,11 @@ if (isset($_POST['per_modif'])) {
             <input type="hidden" name="per_num" value="<?php echo $_POST['per_modif']; ?>">
             <div class="row">
                 <label>Nom :</label>
-                <input type="text" name="per_nom" value="<?php echo $per_a_modif->getPerNom(); ?>" pattern="[A-Za-z]" oninvalid="this.setCustomValidity('Entrez un nom valide')" oninput="this.setCustomValidity('')" required>
+                <input type="text" name="per_nom" value="<?php echo $per_a_modif->getPerNom(); ?>" pattern="[A-Za-z]{0,26}" oninvalid="this.setCustomValidity('Entrez un nom valide')" oninput="this.setCustomValidity('')" required>
             </div>
             <div class="row">
                 <label>Prénom :</label>
-                <input type="text" name="per_prenom" value="<?php echo $per_a_modif->getPerPrenom(); ?>" pattern="[A-Za-z]" oninvalid="this.setCustomValidity('Entrez un prénom valide')" oninput="this.setCustomValidity('')" required>
+                <input type="text" name="per_prenom" value="<?php echo $per_a_modif->getPerPrenom(); ?>" pattern="[A-Za-z]{0,26}" oninvalid="this.setCustomValidity('Entrez un prénom valide')" oninput="this.setCustomValidity('')" required>
             </div>
             <div class="row">
                 <label>Téléphone :</label>

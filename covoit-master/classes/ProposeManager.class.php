@@ -104,7 +104,7 @@ class ProposeManager {
      * Procédure qui permet de delete les trajets correspondants à la personne ayant le numéro en paramètre de la base
      * @param $per_num
      */
-    public function deleteProposeFromPerNum($per_num): void {
+    public function deleteProposeFromPerNum($per_num){
         $requete = $this->db->prepare('DELETE FROM propose WHERE per_num=(:per_num)');
         $requete->bindValue(':per_num', $per_num);
         $requete->execute();
@@ -115,7 +115,7 @@ class ProposeManager {
      * Procédure qui permet de delete les avis correspondants à la personne ayant le numéro en paramètre de la base
      * @param $per_num
      */
-    public function deleteAvisFromPerNum($per_num): void {
+    public function deleteAvisFromPerNum($per_num) {
         $requete = $this->db->prepare('DELETE FROM avis WHERE per_num=(:per_num) OR per_per_num=(:per_num)');
         $requete->bindValue(':per_num', $per_num);
         $requete->execute();

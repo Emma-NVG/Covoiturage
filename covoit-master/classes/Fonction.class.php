@@ -25,7 +25,7 @@ class Fonction {
         return $this->fon_num;
     }
 
-    public function setFonNum($fon_num): void {
+    public function setFonNum($fon_num){
         $this->fon_num = $fon_num;
     }
 
@@ -33,7 +33,7 @@ class Fonction {
         return $this->fon_libelle;
     }
 
-    public function setFonLibelle($fon_libelle): void {
+    public function setFonLibelle($fon_libelle) {
         $this->fon_libelle = $fon_libelle;
     }
 

@@ -153,7 +153,7 @@ class PersonneManager {
      * Fonction qui delete la personne en base correspondant au numéro passé en paramètre
      * @param $per_num
      */
-    public function deletePersonneFromNum($per_num): void {
+    public function deletePersonneFromNum($per_num) {
         $requete = $this->db->prepare('DELETE FROM personne WHERE per_num=(:per_num)');
         $requete->bindValue(':per_num', $per_num);
         $requete->execute();

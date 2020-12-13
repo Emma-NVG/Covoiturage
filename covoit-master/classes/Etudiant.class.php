@@ -29,7 +29,7 @@ class Etudiant {
         return $this->per_num;
     }
 
-    public function setPerNum($per_num): void {
+    public function setPerNum($per_num) {
         $this->per_num = $per_num;
     }
 
@@ -37,7 +37,7 @@ class Etudiant {
         return $this->dep_num;
     }
 
-    public function setDepNum($dep_num): void {
+    public function setDepNum($dep_num){
         $this->dep_num = $dep_num;
     }
 
@@ -45,7 +45,7 @@ class Etudiant {
         return $this->div_num;
     }
 
-    public function setDivNum($div_num): void {
+    public function setDivNum($div_num) {
         $this->div_num = $div_num;
     }
 

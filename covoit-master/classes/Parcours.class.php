@@ -33,7 +33,7 @@ class Parcours {
         return $this->vil_num1;
     }
 
-    public function setVilNum1($vil_num1): void {
+    public function setVilNum1($vil_num1) {
         $this->vil_num1 = $vil_num1;
     }
 
@@ -41,7 +41,7 @@ class Parcours {
         return $this->vil_num2;
     }
 
-    public function setVilNum2($vil_num2): void {
+    public function setVilNum2($vil_num2){
         $this->vil_num2 = $vil_num2;
     }
 
@@ -49,7 +49,7 @@ class Parcours {
         return $this->par_km;
     }
 
-    public function setParKm($par_km): void {
+    public function setParKm($par_km) {
         $this->par_km = $par_km;
     }
 
@@ -57,7 +57,7 @@ class Parcours {
         return $this->par_num;
     }
 
-    public function setParNum($par_num): void {
+    public function setParNum($par_num) {
         $this->par_num = $par_num;
     }
 }

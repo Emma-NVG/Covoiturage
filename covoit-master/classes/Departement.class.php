@@ -29,7 +29,7 @@ class Departement {
         return $this->dep_num;
     }
 
-    public function setDepNum($dep_num): void {
+    public function setDepNum($dep_num) {
         $this->dep_num = $dep_num;
     }
 
@@ -37,7 +37,7 @@ class Departement {
         return $this->dep_nom;
     }
 
-    public function setDepNom($dep_nom): void {
+    public function setDepNom($dep_nom) {
         $this->dep_nom = $dep_nom;
     }
 
@@ -45,7 +45,7 @@ class Departement {
         return $this->vil_num;
     }
 
-    public function setVilNum($vil_num): void {
+    public function setVilNum($vil_num) {
         $this->vil_num = $vil_num;
     }
 

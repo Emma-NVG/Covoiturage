@@ -75,7 +75,7 @@ class EtudiantManager {
      * Fonction qui delete dans la base l'étudiant correspondant au numéro en paramètre
      * @param $per_num
      */
-    public function deleteEtudiantFromNum($per_num): void {
+    public function deleteEtudiantFromNum($per_num){
         $requete = $this->db->prepare('DELETE FROM etudiant WHERE per_num=(:per_num)');
         $requete->bindValue(':per_num', $per_num);
         $requete->execute();

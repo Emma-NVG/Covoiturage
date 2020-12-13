@@ -105,7 +105,7 @@ class ParcoursManager {
         $requete->execute();
 
         while ($villesDep = $requete->fetch()) {
-            $array = array('vil_num' => $villesDep['vil_num1'], 'vil_nom' => $this->getVilNomFromVilNum($villesDep['vil_num1'],));
+            $array = array('vil_num' => $villesDep['vil_num1'], 'vil_nom' => $this->getVilNomFromVilNum($villesDep['vil_num1']));
             $listeVillesDep[] = new Ville($array);
         }
         $requete->closeCursor();
@@ -123,7 +123,7 @@ class ParcoursManager {
         $requete->execute();
 
         while ($villesAr = $requete->fetch()) {
-            $array = array('vil_num' => $villesAr['vil_num1'], 'vil_nom' => $this->getVilNomFromVilNum($villesAr['vil_num1'],));
+            $array = array('vil_num' => $villesAr['vil_num1'], 'vil_nom' => $this->getVilNomFromVilNum($villesAr['vil_num1']));
             $listeVillesAr[] = new Ville($array);
         }
         $requete->closeCursor();

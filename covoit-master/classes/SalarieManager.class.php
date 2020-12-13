@@ -75,7 +75,7 @@ class SalarieManager {
      * Procédure qui permet de delete un salarie ayant pour numéro celui en paramètre de la base
      * @param $per_num
      */
-    public function deleteSalarieFromNum($per_num): void {
+    public function deleteSalarieFromNum($per_num) {
         $requete = $this->db->prepare('DELETE FROM salarie WHERE per_num=(:per_num)');
         $requete->bindValue(':per_num', $per_num);
         $requete->execute();

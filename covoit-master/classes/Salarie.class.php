@@ -29,7 +29,7 @@ class Salarie {
         return $this->per_num;
     }
 
-    public function setPerNum($per_num): void {
+    public function setPerNum($per_num) {
         $this->per_num = $per_num;
     }
 
@@ -37,7 +37,7 @@ class Salarie {
         return $this->sal_telprof;
     }
 
-    public function setSalTelprof($sal_telprof): void {
+    public function setSalTelprof($sal_telprof) {
         $this->sal_telprof = $sal_telprof;
     }
 
@@ -45,7 +45,7 @@ class Salarie {
         return $this->fon_num;
     }
 
-    public function setFonNum($fon_num): void {
+    public function setFonNum($fon_num) {
         $this->fon_num = $fon_num;
     }
 

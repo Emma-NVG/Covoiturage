@@ -25,7 +25,7 @@ class Division {
         return $this->div_num;
     }
 
-    public function setDivNum($div_num): void {
+    public function setDivNum($div_num){
         $this->div_num = $div_num;
     }
 
@@ -33,7 +33,7 @@ class Division {
         return $this->div_nom;
     }
 
-    public function setDivNom($div_nom): void {
+    public function setDivNom($div_nom) {
         $this->div_nom = $div_nom;
     }
 }

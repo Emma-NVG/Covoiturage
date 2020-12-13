@@ -20,11 +20,11 @@ if (empty($_POST['categorie'])) {
         <div class="form-grid">
             <div class="row">
                 <label>Nom :</label>
-                <input type="text" name="per_nom" pattern="[A-Za-z]" oninvalid="this.setCustomValidity('Entrez un nom valide')" oninput="this.setCustomValidity('')" required><br>
+                <input type="text" name="per_nom" pattern="[A-Za-z]{0,26}" oninvalid="this.setCustomValidity('Entrez un prénom valide')" oninput="this.setCustomValidity('')" required><br>
             </div>
             <div class="row">
                 <label>Prénom :</label>
-                <input type="text" name="per_prenom" pattern="[A-Za-z]" oninvalid="this.setCustomValidity('Entrez un prénom valide')" oninput="this.setCustomValidity('')" required><br>
+                <input type="text" name="per_prenom" pattern="[A-Za-z]{0,26}" oninvalid="this.setCustomValidity('Entrez un prénom valide')" oninput="this.setCustomValidity('')" required><br>
             </div>
             <div class="row">
                 <label>Téléphone :</label>

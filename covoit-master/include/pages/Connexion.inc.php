@@ -22,8 +22,7 @@ $pdo = new Mypdo();
 $personneManager = new PersonneManager($pdo);
 
 if (isset($_POST['login']) && isset($_POST['pwd']) && isset($_POST['captcha'])) {
-    $salt = "48@!alsd";
-    $pwdCrypt = sha1(sha1($_POST['pwd']) . $salt);
+    $pwdCrypt = sha1(sha1($_POST['pwd']) . SALT);
     if ($personneManager->loginAndPasswordValide($_POST['login'], $pwdCrypt) && $_POST['captcha'] == $_POST['captcha_result']) {
         $_SESSION['login'] = $_POST['login'];
         $_SESSION['pwd'] = $pwdCrypt;
