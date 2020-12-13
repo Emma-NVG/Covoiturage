@@ -30,35 +30,35 @@ if (isset($_POST['per_modif'])) {
     <form action="#" method="POST">
         <div class="form-grid">
             <input type="hidden" name="per_num" value="<?php echo $_POST['per_modif']; ?>">
-            <div class="row"><label>Nom :</label><input type="text" name="per_nom"
-                        value="<?php echo $per_a_modif->getPerNom(); ?>"
-                        pattern="[A-Za-z]" required></div>
-            <div class="row"><label>Prénom :</label><input type="text" name="per_prenom"
-                        value="<?php echo $per_a_modif->getPerPrenom(); ?>"
-                        pattern="[A-Za-z]" required></div>
-            <div class="row"><label>Téléphone :</label><input type="tel" name="per_tel"
-                        value="<?php echo $per_a_modif->getPerTel(); ?>"
-                        pattern="[0-9]{10}" required></div>
-            <div class="row"><label>Mail :</label><input type="email" name="per_mail"
-                        value="<?php echo $per_a_modif->getPerMail(); ?>"
-                        required></div>
-            <div class="row"><label>Login :</label><input type="text" name="per_login" autocomplete="off"
-                        value="<?php echo $per_a_modif->getPerLogin(); ?>" required>
+            <div class="row">
+                <label>Nom :</label>
+                <input type="text" name="per_nom" value="<?php echo $per_a_modif->getPerNom(); ?>" pattern="[A-Za-z]" oninvalid="this.setCustomValidity('Entrez un nom valide')" oninput="this.setCustomValidity('')" required>
             </div>
             <div class="row">
-                <label>Mot de Passe :</label><input type="password" name="per_pwd" autocomplete="off"
-                        value="**********"
-                        required></div>
+                <label>Prénom :</label>
+                <input type="text" name="per_prenom" value="<?php echo $per_a_modif->getPerPrenom(); ?>" pattern="[A-Za-z]" oninvalid="this.setCustomValidity('Entrez un prénom valide')" oninput="this.setCustomValidity('')" required>
+            </div>
+            <div class="row">
+                <label>Téléphone :</label>
+                <input type="tel" name="per_tel" value="<?php echo $per_a_modif->getPerTel(); ?>" pattern="[0-9]{10}" oninvalid="this.setCustomValidity('Entrez un numéro de ce type : 0666666666')" oninput="this.setCustomValidity('')" required>
+            </div>
+            <div class="row">
+                <label>Mail :</label>
+                <input type="email" name="per_mail" value="<?php echo $per_a_modif->getPerMail(); ?>" required>
+            </div>
+            <div class="row">
+                <label>Login :</label>
+                <input type="text" name="per_login" autocomplete="off" value="<?php echo $per_a_modif->getPerLogin(); ?>" required>
+            </div>
+            <div class="row">
+                <label>Mot de Passe :</label>
+                <input type="password" name="per_pwd" autocomplete="off" value="**********" required>
+            </div>
             <label>Catégorie :</label>
             <?php $statut = $personneManager->isEtudiant($per_a_modif->getPerNum()); ?>
             <input type="hidden" name="old_categorie" value="<?php echo $statut; ?>">
-            <input type="radio" name="categorie" value="etudiant"
-                    class="modifier" <?php if ($statut == "etudiant") {
-                echo "checked";
-            } ?>>Etudiant
-            <input type="radio" name="categorie" value="salarie" class="modifier" <?php if ($statut == "salarie") {
-                echo "checked";
-            } ?>>Personnel<br>
+            <input type="radio" name="categorie" value="etudiant" class="modifier" <?php if ($statut == "etudiant") {echo "checked";} ?>>Etudiant
+            <input type="radio" name="categorie" value="salarie" class="modifier" <?php if ($statut == "salarie") {echo "checked";} ?>>Personnel<br>
         </div>
         <div class="form-grid">
             <div class="etudiant statut row">
@@ -70,18 +70,14 @@ if (isset($_POST['per_modif'])) {
                 <label>Année :
                     <select name="div_num">
                         <?php foreach ($divisions as $div) { ?>
-                            <option value="<?php echo $div->getDivNum(); ?>" <?php if ($div->getDivNum() == $etu->getDivNum()) {
-                                echo "selected";
-                            } ?>> <?php echo $div->getDivNom(); ?></option>
+                            <option value="<?php echo $div->getDivNum(); ?>" <?php if ($div->getDivNum() == $etu->getDivNum()) {echo "selected";} ?>> <?php echo $div->getDivNom(); ?></option>
                         <?php } ?>
                     </select></label>
                 <br>
                 <label>Département :
                     <select name="dep_num">
                         <?php foreach ($departements as $dep) { ?>
-                            <option value="<?php echo $dep->getDepNum(); ?>" <?php if ($dep->getDepNum() == $etu->getDepNum()) {
-                                echo "selected";
-                            } ?>> <?php echo $dep->getDepNom(); ?></option>
+                            <option value="<?php echo $dep->getDepNum(); ?>" <?php if ($dep->getDepNum() == $etu->getDepNum()) {echo "selected";} ?>> <?php echo $dep->getDepNom(); ?></option>
                         <?php } ?>
                     </select></label>
             </div>
@@ -91,14 +87,11 @@ if (isset($_POST['per_modif'])) {
                 $salarieManager = new SalarieManager($pdo);
                 $sal = $salarieManager->getSalarieFromPerNum($_POST['per_modif']);
                 ?>
-                <label>Téléphone professionnel :<input type="tel" name="sal_telprof"
-                            value="<?php echo $sal->getSalTelprof(); ?>" pattern="[0-9]{10}"></label><br>
+                <label>Téléphone professionnel :<input type="tel" name="sal_telprof" value="<?php echo $sal->getSalTelprof(); ?>" pattern="[0-9]{10}"></label><br>
                 <label>Fonction :
                     <select name="fon_num">
                         <?php foreach ($fonctions as $fon) { ?>
-                            <option value="<?php echo $fon->getFonNum(); ?>" <?php if ($fon->getFonNum() == $sal->getFonNum()) {
-                                echo "selected";
-                            } ?>><?php echo $fon->getFonLibelle(); ?></option>
+                            <option value="<?php echo $fon->getFonNum(); ?>" <?php if ($fon->getFonNum() == $sal->getFonNum()) {echo "selected";} ?>><?php echo $fon->getFonLibelle(); ?></option>
                         <?php } ?>
                     </select></label>
             </div>

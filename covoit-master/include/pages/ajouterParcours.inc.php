@@ -23,7 +23,7 @@ if (empty($_POST['vil_num1']) || empty($_POST['vil_num2'])) {
             <?php } ?>
         </select>
 
-        <label>Nombre de kilomètre(s) : </label><input type="number" name="par_km" min="1" max="9000">
+        <label>Nombre de kilomètre(s) : </label><input type="number" name="par_km" min="1" max="9000" oninvalid="this.setCustomValidity('Entrez une distance comprise entre 1 et 9000km')" oninput="this.setCustomValidity('')">
         <input type="submit" name="valider" value="Valider">
     </form>
     <?php

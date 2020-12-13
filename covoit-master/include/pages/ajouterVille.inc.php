@@ -3,7 +3,7 @@
 if (empty($_POST['vil_nom'])) {
     ?>
     <form action="#" method="POST">
-        <label>Nom : </label><input type="text" name="vil_nom" pattern="[A-Za-z]" required>
+        <label>Nom : </label><input type="text" name="vil_nom" pattern="[A-Za-z]" oninvalid="this.setCustomValidity('Entrez un nom de ville valide')" oninput="this.setCustomValidity('')" required>
         <input type="submit" name="valider" value="Valider">
     </form>
     <?php

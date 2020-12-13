@@ -18,17 +18,29 @@ if (empty($_POST['categorie'])) {
     <h1>Ajouter une personne</h1>
     <form class="form" action="#" method="POST">
         <div class="form-grid">
-            <div class="row"><label>Nom :</label><input type="text" name="per_nom" pattern="[A-Za-z]" required><br>
+            <div class="row">
+                <label>Nom :</label>
+                <input type="text" name="per_nom" pattern="[A-Za-z]" oninvalid="this.setCustomValidity('Entrez un nom valide')" oninput="this.setCustomValidity('')" required><br>
             </div>
-            <div class="row"><label>Prénom :</label><input type="text" name="per_prenom" pattern="[A-Za-z]"
-                        required><br></div>
-            <div class="row"><label>Téléphone :</label><input type="tel" name="per_tel" pattern="[0-9]{10}"
-                        required><br></div>
-            <div class="row"><label>Mail :</label><input type="email" name="per_mail" required><br></div>
-            <div class="row"><label>Login :</label><input type="text" name="per_login" autocomplete="off" required><br>
+            <div class="row">
+                <label>Prénom :</label>
+                <input type="text" name="per_prenom" pattern="[A-Za-z]" oninvalid="this.setCustomValidity('Entrez un prénom valide')" oninput="this.setCustomValidity('')" required><br>
             </div>
-            <div class="row"><label>Mot de Passe :</label><input type="password" name="per_pwd" autocomplete="off"
-                        required><br></div>
+            <div class="row">
+                <label>Téléphone :</label>
+                <input type="tel" name="per_tel" pattern="[0-9]{10}" oninvalid="this.setCustomValidity('Entrez un numéro de ce type : 0666666666')" oninput="this.setCustomValidity('')" required><br></div>
+            <div class="row">
+                <label>Mail :</label>
+                <input type="email" name="per_mail" required><br>
+            </div>
+            <div class="row">
+                <label>Login :</label>
+                <input type="text" name="per_login" autocomplete="off" required><br>
+            </div>
+            <div class="row">
+                <label>Mot de Passe :</label>
+                <input type="password" name="per_pwd" autocomplete="off" required><br>
+            </div>
             <label>Catégorie :</label>
             <input type="radio" name="categorie" value="etudiant" checked>Etudiant
             <input type="radio" name="categorie" value="personnel">Personnel<br>
@@ -63,7 +75,8 @@ if (empty($_POST['categorie'])) {
         ?>
         <h1>Ajouter un salarié</h1>
         <form action="#" method="POST">
-            <label>Téléphone professionnel :</label><input type="tel" name="sal_telprof" required><br>
+            <label>Téléphone professionnel :</label>
+            <input type="tel" name="sal_telprof" pattern="[0-9]{10}" oninvalid="this.setCustomValidity('Entrez un numéro de ce type : 0666666666')" oninput="this.setCustomValidity('')" required><br>
             <label>Fonction :</label>
             <select name="fon_num" required>
                 <?php foreach ($fonctions as $fon) { ?>

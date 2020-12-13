@@ -31,12 +31,9 @@
                     <option value="<?php echo $vi->getVilNum(); ?>"><?php echo $vi->getVilNom(); ?></option>
                 <?php } ?>
             </select><br>
-            <label>Date de départ : </label><input type="date" name="date" value="<?php echo date("yy-m-d"); ?>"
-                    required>
-            <label>Heure de départ : </label><input type="time" name="time" value="<?php echo date("H:i:s"); ?>"
-                    required><br>
-            <label>Nombre de places : </label><input type="number" name="nbrPlaces" min="1" max="200" value="1"
-                    required><br>
+            <label>Date de départ : </label><input type="date" name="date" value="<?php echo date("yy-m-d"); ?>" required>
+            <label>Heure de départ : </label><input type="time" name="time" value="<?php echo date("H:i:s"); ?>" required><br>
+            <label>Nombre de places : </label><input type="number" name="nbrPlaces" min="1" max="200" value="1" oninvalid="this.setCustomValidity('Entrez un nombre de places positif')" oninput="this.setCustomValidity('')" required><br>
             <input type="submit" value="Valider">
         </form>
     <?php }
