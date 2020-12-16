@@ -58,14 +58,14 @@ class ProposeManager {
         $listeTrajet = array();
         $requete = $this->db->prepare(' SELECT pa.par_num, per_num, DATE_FORMAT(pro_date,"%d/%m/%Y") as pro_date, pro_time, pro_place, pro_sens FROM propose pr
                                         JOIN parcours pa ON pa.par_num=pr.par_num
-                                        WHERE vil_num1=(:vil_num1) AND vil_num2=(:vil_num2)
+                                        WHERE ((vil_num1=(:vil_dep) AND vil_num2=(:vil_ar) AND pro_sens=0) OR (vil_num1=(:vil_ar) AND vil_num2=(:vil_dep) AND pro_sens=1))
                                             AND pro_date BETWEEN (DATE_ADD((:prodate), INTERVAL -(:precision) DAY)) AND (DATE_ADD((:prodate), INTERVAL (:precision) DAY))
                                             AND pro_time >= (:pro_time) 
                                         ORDER BY 3
                                       ');
         $requete->bindValue(':prodate', $date_dep);
-        $requete->bindValue(':vil_num1', $villeDepart);
-        $requete->bindValue(':vil_num2', $villeArrivee);
+        $requete->bindValue(':vil_dep', $villeDepart);
+        $requete->bindValue(':vil_ar', $villeArrivee);
         $requete->bindValue(':precision', $precision);
         $requete->bindValue(':pro_time', $heure_dep);
         $requete->execute();
